@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :predictions, except: [:new, :edit]
+  resources :matchups, except: [:new, :edit]
+  resources :pools, except: [:new, :edit]
   resources :examples, except: [:new, :edit]
   post '/sign-up' => 'users#signup'
   post '/sign-in' => 'users#signin'
