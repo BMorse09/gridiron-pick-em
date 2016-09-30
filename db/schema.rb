@@ -29,18 +29,20 @@ ActiveRecord::Schema.define(version: 20160930175939) do
     t.string   "home"
     t.string   "away"
     t.integer  "week"
+    t.string   "outcome"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "predictions", force: :cascade do |t|
-    t.text     "pred"
-    t.text     "outcome"
     t.integer  "user_id"
+    t.integer  "matchup_id"
+    t.text     "pick"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+  add_index "predictions", ["matchup_id"], name: "index_predictions_on_matchup_id", using: :btree
   add_index "predictions", ["user_id"], name: "index_predictions_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
@@ -55,5 +57,6 @@ ActiveRecord::Schema.define(version: 20160930175939) do
   add_index "users", ["token"], name: "index_users_on_token", unique: true, using: :btree
 
   add_foreign_key "examples", "users"
+  add_foreign_key "predictions", "matchups"
   add_foreign_key "predictions", "users"
 end

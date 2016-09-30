@@ -1,3 +1,5 @@
 class UserSerializer < ActiveModel::Serializer
-  attributes :id, :email
+  attributes :id, :email, :predictions
+  has_many :predictions
+  # has_many :matchups
 end

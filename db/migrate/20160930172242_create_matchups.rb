@@ -4,6 +4,7 @@ class CreateMatchups < ActiveRecord::Migration
       t.string :home
       t.string :away
       t.integer :week
+      t.string :outcome
 
       t.timestamps null: false
     end

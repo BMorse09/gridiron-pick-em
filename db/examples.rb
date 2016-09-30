@@ -16,3 +16,18 @@
 #                password: 'abc123',
 #                password_confirmation: nil)
 # end
+
+
+User.create([
+  {email: "test@test.com", password: "123", password_confirmation: "123"},
+
+  ])
+
+Matchup.create([
+  {home: "ne", away: "cin", week: 1},
+
+  ])
+
+Prediction.create([
+  {user_id: 1, matchup_id: 1, pick: "ne"}
+  ])

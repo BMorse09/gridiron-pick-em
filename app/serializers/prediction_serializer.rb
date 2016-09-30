@@ -1,5 +1,5 @@
 class PredictionSerializer < ActiveModel::Serializer
-  attributes :id, :pred, :outcome
-  has_one :user
-  belongs_to :Matchup
+  attributes :id, :user, :matchup, :pick
+  # belongs_to :user
+  # belongs_to :matchup
 end

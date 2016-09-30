@@ -54,6 +54,6 @@ class MatchupsController < ApplicationController
     end
 
     def matchup_params
-      params.require(:matchup).permit(:home, :away, :week)
+      params.require(:matchup).permit(:home, :away, :week, :outcome)
     end
 end

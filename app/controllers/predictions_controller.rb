@@ -54,6 +54,6 @@ class PredictionsController < ApplicationController
     end
 
     def prediction_params
-      params.require(:prediction).permit(:pred, :outcome, :user_id)
+      params.require(:prediction).permit(:pick, :matchup_id, :user_id)
     end
 end
