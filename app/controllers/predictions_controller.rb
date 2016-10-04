@@ -49,11 +49,11 @@ class PredictionsController < ApplicationController
 
   private
 
-    def set_prediction
-      @prediction = Prediction.find(params[:id])
-    end
+  def set_prediction
+    @prediction = Prediction.find(params[:id])
+  end
 
-    def prediction_params
-      params.require(:prediction).permit(:pick, :matchup_id, :user_id)
-    end
+  def prediction_params
+    params.require(:prediction).permit(:pick, :matchup_id, :user_id)
+  end
 end

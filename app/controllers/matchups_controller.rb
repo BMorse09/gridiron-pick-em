@@ -49,11 +49,11 @@ class MatchupsController < ApplicationController
 
   private
 
-    def set_matchup
-      @matchup = Matchup.find(params[:id])
-    end
+  def set_matchup
+    @matchup = Matchup.find(params[:id])
+  end
 
-    def matchup_params
-      params.require(:matchup).permit(:home, :away, :week, :outcome)
-    end
+  def matchup_params
+    params.require(:matchup).permit(:home, :away, :week, :outcome)
+  end
 end
