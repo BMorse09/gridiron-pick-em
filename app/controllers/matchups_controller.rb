@@ -1,4 +1,4 @@
-class MatchupsController < ApplicationController
+class MatchupsController < ProtectedController
   before_action :set_matchup, only: [:show, :update, :destroy]
 
   # GET /matchups
@@ -17,35 +17,35 @@ class MatchupsController < ApplicationController
 
   # POST /matchups
   # POST /matchups.json
-  def create
-    @matchup = Matchup.new(matchup_params)
-
-    if @matchup.save
-      render json: @matchup, status: :created, location: @matchup
-    else
-      render json: @matchup.errors, status: :unprocessable_entity
-    end
-  end
+  # def create
+  #   @matchup = Matchup.new(matchup_params)
+  #
+  #   if @matchup.save
+  #     render json: @matchup, status: :created, location: @matchup
+  #   else
+  #     render json: @matchup.errors, status: :unprocessable_entity
+  #   end
+  # end
 
   # PATCH/PUT /matchups/1
   # PATCH/PUT /matchups/1.json
-  def update
-    @matchup = Matchup.find(params[:id])
-
-    if @matchup.update(matchup_params)
-      head :no_content
-    else
-      render json: @matchup.errors, status: :unprocessable_entity
-    end
-  end
+  # def update
+  #   @matchup = Matchup.find(params[:id])
+  #
+  #   if @matchup.update(matchup_params)
+  #     head :no_content
+  #   else
+  #     render json: @matchup.errors, status: :unprocessable_entity
+  #   end
+  # end
 
   # DELETE /matchups/1
   # DELETE /matchups/1.json
-  def destroy
-    @matchup.destroy
-
-    head :no_content
-  end
+  # def destroy
+  #   @matchup.destroy
+  #
+  #   head :no_content
+  # end
 
   private
 

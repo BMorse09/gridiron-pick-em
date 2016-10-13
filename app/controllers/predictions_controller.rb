@@ -1,10 +1,10 @@
-class PredictionsController < ApplicationController
+class PredictionsController < ProtectedController
   before_action :set_prediction, only: [:show, :update, :destroy]
 
   # GET /predictions
   # GET /predictions.json
   def index
-    @predictions = Prediction.all
+    @predictions = current_user.predictions.all
 
     render json: @predictions
   end
@@ -18,7 +18,7 @@ class PredictionsController < ApplicationController
   # POST /predictions
   # POST /predictions.json
   def create
-    @prediction = Prediction.new(prediction_params)
+    @prediction = current_user.predictions.build(prediction_params)
 
     if @prediction.save
       render json: @prediction, status: :created, location: @prediction
@@ -30,7 +30,7 @@ class PredictionsController < ApplicationController
   # PATCH/PUT /predictions/1
   # PATCH/PUT /predictions/1.json
   def update
-    @prediction = Prediction.find(params[:id])
+    # @prediction = Prediction.find(params[:id])
 
     if @prediction.update(prediction_params)
       head :no_content
@@ -50,7 +50,7 @@ class PredictionsController < ApplicationController
   private
 
   def set_prediction
-    @prediction = Prediction.find(params[:id])
+    @prediction = current_user.predictions.find(params[:id])
   end
 
   def prediction_params

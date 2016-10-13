@@ -1,4 +1,4 @@
-class UsersController < ApplicationController # NEEDS TO BE PROTECTED
+class UsersController < ProtectedController
   skip_before_action :authenticate, only: [:signup, :signin]
 
   # POST '/sign-up'
@@ -24,10 +24,15 @@ class UsersController < ApplicationController # NEEDS TO BE PROTECTED
 
   # DELETE '/sign-out/1'
   def signout
+    puts 'in signout, id is', params[:id]
+    puts 'current user is', current_user
+    puts 'User.find gives', User.find(params[:id])
     if current_user == User.find(params[:id])
+      puts 'i am in the if block'
       current_user.logout
       head :no_content
     else
+      puts 'i am in the else block'
       head :unauthorized
     end
   end

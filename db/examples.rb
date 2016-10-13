@@ -38,7 +38,7 @@ Matchup.create([
   { home: 'MIN', away: 'NYG', week: 4, outcome: 'home' }
                ])
 
-Predictions.create([
+Prediction.create([
   { user_id: 1, matchup_id: 1, pick: 'home' },
   { user_id: 1, matchup_id: 2, pick: 'away' },
   { user_id: 1, matchup_id: 3, pick: 'away' },
